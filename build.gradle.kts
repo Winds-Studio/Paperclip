@@ -111,7 +111,7 @@ publishing {
         }
 
         repositories {
-            val url = "https://maven.nostal.ink/"
+            val url = "https://maven.nostal.ink/repository/maven-snapshots/"
 
             maven(url) {
                 credentials(PasswordCredentials::class)
