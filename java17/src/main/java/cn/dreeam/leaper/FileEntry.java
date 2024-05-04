@@ -1,4 +1,4 @@
-package io.papermc.paperclip;
+package cn.dreeam.leaper;
 
 import java.io.BufferedReader;
 import java.io.IOException;

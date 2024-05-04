@@ -13,11 +13,11 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'temurin'
+          distribution: 'zulu'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Deploy release
         run: ./gradlew -Dorg.gradle.parallel=true publish --no-daemon --stacktrace
         env:
-          ORG_GRADLE_PROJECT_paperUsername: ${{ secrets.DEPLOY_USER }}
-          ORG_GRADLE_PROJECT_paperPassword: ${{ secrets.DEPLOY_PASS }}
+          ORG_GRADLE_PROJECT_quantumleaperUsername: ${{ secrets.REPO_USER }}
+          ORG_GRADLE_PROJECT_quantumleaperPassword: ${{ secrets.REPO_PASSWORD }}

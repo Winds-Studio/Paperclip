@@ -1,4 +1,4 @@
-package io.papermc.paperclip;
+package cn.dreeam.leaper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,22 +12,21 @@ import java.net.URLClassLoader;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class Paperclip {
+public final class QuantumLeaper {
 
     public static void main(final String[] args) {
         if (Path.of("").toAbsolutePath().toString().contains("!")) {
-            System.err.println("Paperclip may not run in a directory containing '!'. Please rename the affected folder.");
+            System.err.println("Leaf may not run in a directory containing '!'. Please rename the affected folder.");
             System.exit(1);
         }
 
         final URL[] classpathUrls = setupClasspath();
 
-        final ClassLoader parentClassLoader = Paperclip.class.getClassLoader();
+        final ClassLoader parentClassLoader = QuantumLeaper.class.getClassLoader();
         final URLClassLoader classLoader = new URLClassLoader(classpathUrls, parentClassLoader);
 
         final String mainClassName = findMainClass();
@@ -89,7 +88,7 @@ public final class Paperclip {
     }
 
     private static PatchEntry[] findPatches() {
-        final InputStream patchListStream = Paperclip.class.getResourceAsStream("/META-INF/patches.list");
+        final InputStream patchListStream = QuantumLeaper.class.getResourceAsStream("/META-INF/patches.list");
         if (patchListStream == null) {
             return new PatchEntry[0];
         }
@@ -119,7 +118,7 @@ public final class Paperclip {
         return findFileEntries("libraries.list");
     }
     private static FileEntry[] findFileEntries(final String fileName) {
-        final InputStream libListStream = Paperclip.class.getResourceAsStream("/META-INF/" + fileName);
+        final InputStream libListStream = QuantumLeaper.class.getResourceAsStream("/META-INF/" + fileName);
         if (libListStream == null) {
             return null;
         }

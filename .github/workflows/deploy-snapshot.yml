@@ -1,7 +1,7 @@
 name: Deploy Snapshot
 on:
   push:
-    branches: ['main']
+    branches: ['leaper']
     paths-ignore:
       - 'license.txt'
       - 'readme.md'
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'temurin'
+          distribution: 'zulu'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: Get project version
@@ -31,5 +31,5 @@ jobs:
         if: endsWith(steps.get_version.outputs.version, '-SNAPSHOT')
         run: ./gradlew -Dorg.gradle.parallel=true publish --no-daemon --stacktrace
         env:
-          ORG_GRADLE_PROJECT_paperUsername: ${{ secrets.DEPLOY_USER }}
-          ORG_GRADLE_PROJECT_paperPassword: ${{ secrets.DEPLOY_PASS }}
+          ORG_GRADLE_PROJECT_quantumleaperUsername: ${{ secrets.REPO_USER }}
+          ORG_GRADLE_PROJECT_quantumleaperPassword: ${{ secrets.REPO_PASSWORD }}

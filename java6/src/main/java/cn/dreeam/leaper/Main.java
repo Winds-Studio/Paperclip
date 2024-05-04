@@ -7,7 +7,7 @@
  * MIT License
  */
 
-package io.papermc.paperclip;
+package cn.dreeam.leaper;
 
 import java.lang.reflect.Method;
 
@@ -21,7 +21,7 @@ public final class Main {
         }
 
         try {
-            final Class<?> paperclipClass = Class.forName("io.papermc.paperclip.Paperclip");
+            final Class<?> paperclipClass = Class.forName("cn.dreeam.leaper.QuantumLeaper");
             final Method mainMethod = paperclipClass.getMethod("main", String[].class);
             mainMethod.invoke(null, (Object) args);
         } catch (final Exception e) {

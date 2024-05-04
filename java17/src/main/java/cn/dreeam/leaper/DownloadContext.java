@@ -1,4 +1,4 @@
-package io.papermc.paperclip;
+package cn.dreeam.leaper;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

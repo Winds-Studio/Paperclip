@@ -12,7 +12,7 @@ subprojects {
     }
 }
 
-val mainClass = "io.papermc.paperclip.Main"
+val mainClass = "cn.dreeam.leaper.Main"
 
 tasks.jar {
     val java6Jar = project(":java6").tasks.named("jar")
@@ -66,10 +66,10 @@ publishing {
             withoutBuildIdentifier()
 
             pom {
-                val repoPath = "PaperMC/Paperclip"
+                val repoPath = "Winds-Studio/QuantumLeaper"
                 val repoUrl = "https://github.com/$repoPath"
 
-                name.set("Paperclip")
+                name.set("QuantumLeaper")
                 description.set(project.description)
                 url.set(repoUrl)
                 packaging = "jar"
@@ -94,6 +94,12 @@ publishing {
                         email.set("demonwav@gmail.com")
                         url.set("https://github.com/DemonWav")
                     }
+                    developer {
+                        id.set("Dreeam-qwq")
+                        name.set("Dreeam")
+                        email.set("dreeam_charlie@163.com")
+                        url.set("https://github.com/Dreeam-qwq")
+                    }
                 }
 
                 scm {
@@ -105,15 +111,11 @@ publishing {
         }
 
         repositories {
-            val url = if (isSnapshot) {
-                "https://repo.papermc.io/repository/maven-snapshots/"
-            } else {
-                "https://repo.papermc.io/repository/maven-releases/"
-            }
+            val url = "https://maven.nostal.ink/"
 
             maven(url) {
                 credentials(PasswordCredentials::class)
-                name = "paper"
+                name = "quantumleaper"
             }
         }
     }
